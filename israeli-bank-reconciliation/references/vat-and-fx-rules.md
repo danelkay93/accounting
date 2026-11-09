@@ -101,8 +101,18 @@ finding lands before the report that would claim it:
   the detailed VAT report (PCN874) moves to monthly reporting and payment under
   s.67A(a). That duty covers companies with turnover above NIS 500,000 from the
   September 2025 period, and individual dealers above NIS 500,000 from 1 January
-  2026 (some individuals may apply to defer it to 1 January 2027). So a dealer
-  well under NIS 1,775,000 can still be on a monthly period: ask, do not infer.
+  2026, subject to the conditional deferral below. So a dealer well under
+  NIS 1,775,000 can still be on a monthly period: ask, do not infer.
+- **Conditional automatic deferral to 1 January 2028:** the Tax Authority's
+  [notice of 25 October 2026](https://www.gov.il/he/pages/pa251026-1) extends
+  qualifying individual dealers automatically, without an application to the
+  regional office, if either (a) at least 90% of the total value of input invoices,
+  or (b) at least 90% of the number of input invoices, consists of invoices not
+  exceeding NIS 5,000 before VAT. Companies and dealers who already began
+  detailed reporting are excluded. Ask about legal form, prior detailed-reporting
+  status and the applicable 90% test before choosing cadence. Ineligible dealers
+  retain their ordinary detailed-reporting obligations; this is not a general
+  postponement of VAT reporting or payment.
 - **Osek patur**: no periodic VAT report; an annual turnover declaration by 31
   January for the year that ended.
 

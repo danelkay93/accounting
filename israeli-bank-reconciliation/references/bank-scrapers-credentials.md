@@ -1,11 +1,16 @@
 # israeli-bank-scrapers credential fields
 
-Authoritative source: the `SCRAPERS` map in the library's
-`src/definitions.ts` (https://raw.githubusercontent.com/eshaham/israeli-bank-scrapers/master/src/definitions.ts).
-Read that file, not the README prose: the two disagree for `amex`, where the
-README says `username` and the code declares `id`.
+Verify credential fields against `SCRAPERS` in `src/definitions.ts` for the exact
+reviewed package release/source revision selected in the project lockfile. The
+[upstream repository](https://github.com/eshaham/israeli-bank-scrapers) is a discovery
+source; its moving default branch is not evidence for a pinned package artifact.
+The historical table below recorded a README/source disagreement for `amex`.
 
-## Full provider table (18 CompanyTypes members, library version 6.12.2)
+## Historical provider table (18 CompanyTypes members, attributed to 6.12.2)
+
+This attribution is not a review or recommendation of that package version.
+Confirm every required field against the exact reviewed artifact before use;
+do not test a guessed shape against a live account.
 
 | Provider | Credential fields |
 |---|---|
