@@ -20,14 +20,14 @@ Any classification it makes, including whether an expense's input VAT may be ded
 
 ### Step 1: Set Up the Environment
 
-Install the required dependencies for bank scraping and data processing.
+Use a project manifest and lockfile whose exact dependency versions have been reviewed. No bank-scraper release is approved by this guidance alone. Before setting up a new project, review the exact package artifact, its source, runtime requirements and release notes; pin every direct dependency to an exact version (`--save-exact`), keep `package-lock.json` with the project, and review lockfile changes before upgrades. Do not resolve an unversioned latest scraper and then provide banking credentials.
 
 ```bash
-npm init -y
-npm install israeli-bank-scrapers csv-parse csv-stringify dayjs
+# Only after the exact manifest and lockfile have been reviewed:
+npm ci
 ```
 
-The library's `engines` field requires Node.js 22.22.2 or later (checked against version 6.12.2), so confirm `node --version` first. It ships CommonJS, so the `require` calls below work even though its README shows ESM `import`.
+Check the selected package's `engines` and module format before using the examples below. The historical mention of version 6.12.2 is not a package review or a recommended version; its artifact has not been established as safe here. Live scraping remains dependent on a separately reviewed exact release and provider compatibility.
 
 If you plan to import a file instead of scraping, note what Israeli banks actually
 export. In practice they offer Excel (.xls/.xlsx) and CSV downloads; OFX is not a
@@ -36,12 +36,12 @@ file path and reach for OFX only if the user already has an aggregator or accoun
 package that emits it:
 
 ```bash
-# CSV is the realistic import path (csv-parse is already installed above)
+# CSV is the realistic import path (use a reviewed, exactly pinned csv-parse)
 # For an Excel download, have the user "Save As" CSV in Excel or Sheets first,
 # which avoids pulling in an extra spreadsheet parser.
 
-# Only if the user genuinely has OFX files from an aggregator
-npm install ofx-js
+# For OFX files from an aggregator, review and pin an exact ofx-js version
+# in the manifest and lockfile first, then use npm ci.
 ```
 
 For reference, the core scraping library is maintained at: https://github.com/eshaham/israeli-bank-scrapers
@@ -107,7 +107,8 @@ async function fetchTransactions(bankId, credentials, startDate) {
   const result = await scraper.scrape(credentials);
 
   if (!result.success) {
-    throw new Error(`Scrape failed: ${result.errorType} - ${result.errorMessage}`);
+    // errorMessage can carry raw provider text; keep only the fixed errorType.
+    throw new Error(`Scrape failed: ${result.errorType}`);
   }
 
   return result.accounts.flatMap(account =>
